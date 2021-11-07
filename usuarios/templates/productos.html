@@ -1,0 +1,35 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+{% if user.privilegio == "A" %}
+<div class="contenedorFormulario" style="text-align: center;">
+    <form action="." enctype="multipart/form-data" method="post" >
+        {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="Crear producto">
+    </form>
+    
+</div>
+{% else %}
+{% if user.privilegio == "V" %}
+<div class="contenedorFormulario" style="text-align: center;">
+    <form action="." enctype="multipart/form-data" method="post" >
+        {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="Crear producto">
+    </form>
+    
+</div>
+{% else %}
+    <h1>No tiene los privilegios para consultar esta información</h1>
+
+{% endif %}
+{% endif %}
+    
+{% endblock content %}

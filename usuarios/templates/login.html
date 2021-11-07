@@ -1,0 +1,42 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="contenedorFormulario" style="text-align: center;">
+    {% if not user.is_authenticated %}
+
+    <h1>Ingreso a cuenta</h1>
+    <form method="POST" style="text-align: center;">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+            
+        <input type="submit" value="Login">
+    </form>
+    {% else %}
+
+        <h1>Bienvenido {{user.username}} </h1>
+        <p class="mb-3">
+         <h4>Imagen:</h4>
+         <img src="{{ user.imagen.url }}" width="300" height="300" alt="Avathar"/>
+         <h4>Usuario:</h4>   <input type="text" value="{{ user.username }}" class="field center" readonly>
+         <h4>Nombres</h4>   <input type="text" value="{{ user.first_name }}" class="field center" readonly>
+         <h4>Apellidos</h4>   <input type="text" value="{{ user.last_name }}" class="field center" readonly>
+         <h4>Edad</h4>   <input type="text" value="{{ user.edad }}" class="field center" readonly>
+         <h4>Email</h4>   <input type="text" value="{{ user.email }}" class="field center" readonly>
+         <h4>Tienda</h4>   <input type="text" value="{{ user.tienda }}" class="field center" readonly>
+         <h4>Privilegio</h4> <input type="text" value="{{ user.privilegio }}" class="field center" readonly>
+
+        </p>
+ 
+          <p class="mb-3">
+            <a href="/register/update/" class="button">Actualizar información</a>
+            <a href="salir/" class="button">LogOut</a>
+          </p>
+
+    {% endif %}
+</div>
+
+{% endblock content %}

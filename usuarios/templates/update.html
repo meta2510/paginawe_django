@@ -1,0 +1,38 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="contenedorFormulario">
+    {% if not user.is_authenticated %}
+
+    <h1>Login Form</h1>
+    <form method="POST" style="text-align: center;">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+            
+        <input type="submit" value="Login">
+    </form>
+    {% else %}
+    <form action="." enctype="multipart/form-data" method="post" >
+        {% csrf_token %}
+        {{ userform.as_table }}
+        {{ user_form.as_table }}
+
+        <input type="submit" value="Actualizar información">
+        
+    </form>
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+    {% endif %}
+
+</div>
+
+{% endblock content %}

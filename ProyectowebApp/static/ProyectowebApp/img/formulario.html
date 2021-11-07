@@ -1,0 +1,166 @@
+
+<!-- saved from url=(0031)http://127.0.0.1:8000/register/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+   <style>@media print {#ghostery-tracker-tally {display:none !important}}</style></head><body>Mi tienda en linea 
+  <!-- Bootstrap -->
+  <link href="./formulario_files/bootstrap.min.css" rel="stylesheet">
+
+  <!--Se linkean los links desde google Fonts -->
+
+  <link href="./formulario_files/css2" rel="stylesheet">
+  <link href="./formulario_files/css" rel="stylesheet">
+
+
+  <!-- Styles -->
+  <link href="./formulario_files/gestion.css" rel="stylesheet">
+  <link href="./formulario_files/gestion1.css" rel="stylesheet">
+
+
+
+
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+
+    <span class="site-heading-lower">Gestión de Pedidos</span>
+  </h1>
+
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="http://127.0.0.1:8000/">Gestión de
+        Pedidos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="http://127.0.0.1:8000/">Inicio</a>
+          </li>
+         <!---- <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/servicios/">Servicios</a>
+          </li> -->
+          <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="http://127.0.0.1:8000/tienda/">Tienda</a>
+          </li>
+         <!---- <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/contacto/">Contacto</a>
+          </li> -->
+          <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="http://127.0.0.1:8000/shop/">Shop</a>
+          </li>
+         <!---- <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/blog/">Blog</a>
+          </li> -->
+          <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="http://127.0.0.1:8000/register/">Registro</a>
+          </li>
+          <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="http://127.0.0.1:8000/register/login/">Login</a>
+          </li>
+
+          <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="http://127.0.0.1:8000/register/update/">Edit Profile</a>
+          </li>
+
+          <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="http://127.0.0.1:8000/register/productos/">Agregar productos</a>
+          </li>
+
+          <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="http://127.0.0.1:8000/register/reporte/">Reporte Ventas</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="subheader">
+    <div class="cart">
+      
+      
+      Your Cart is empty
+      
+      
+
+    </div>
+
+  </div>
+
+  <!-- Contenido cambiante -->
+  
+<div class="contenedorFormulario">
+    
+    
+    <form action="http://127.0.0.1:8000/register/" enctype="multipart/form-data" method="POST" style="text-align: center;">
+        <input type="hidden" name="csrfmiddlewaretoken" value="ymVifWks8i2CJCpC5BOTvrGTDo8qRs5rk7ZqtjgC4FKhFYRJ3ebTD7b3kaVomAAX">
+        <table style="color: #0D1926; margin: 20px auto;"><tbody><tr><th><label for="id_username">Username:</label></th><td><input type="text" name="username" maxlength="50" autofocus="" required="" id="id_username"></td></tr>
+<tr><th><label for="id_email">Email:</label></th><td><input type="email" name="email" maxlength="254" required="" id="id_email"></td></tr>
+<tr><th><label for="id_first_name">First name:</label></th><td><input type="text" name="first_name" maxlength="50" required="" id="id_first_name"></td></tr>
+<tr><th><label for="id_last_name">Last name:</label></th><td><input type="text" name="last_name" maxlength="50" required="" id="id_last_name"></td></tr>
+<tr><th><label for="id_imagen">Imagen:</label></th><td><input type="file" name="imagen" accept="image/*" required="" id="id_imagen"></td></tr>
+<tr><th><label for="id_edad">Edad:</label></th><td><input type="number" name="edad" min="0" required="" id="id_edad"></td></tr>
+<tr><th><label for="id_privilegio">Privilegio:</label></th><td><select name="privilegio" required="" id="id_privilegio">
+  <option value="" selected="">---------</option>
+
+  <option value="A">Administrador</option>
+
+  <option value="V">Usuario vendedor</option>
+
+  <option value="R">Usuario reporte</option>
+
+</select></td></tr>
+<tr><th><label for="id_password1">Password:</label></th><td><input type="password" name="password1" autocomplete="new-password" required="" id="id_password1"><br><span class="helptext"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 12 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></span></td></tr>
+<tr><th><label for="id_password2">Password confirmation:</label></th><td><input type="password" name="password2" autocomplete="new-password" required="" id="id_password2"><br><span class="helptext">Enter the same password as before, for verification.</span></td></tr>
+            
+        </tbody></table>
+        <input type="submit" value="ENVIAR" style="width:150px">
+    </form>
+    
+</div>
+
+
+
+
+  <!-- Footer  se queda -->
+  <footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0">
+        <a href="http://127.0.0.1:8000/register/#" class="link">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+        <a href="http://127.0.0.1:8000/register/#" class="link">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+        <a href="http://127.0.0.1:8000/register/#" class="link">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </p>
+      <p class="m-0 mbt">
+        <a href="http://127.0.0.1:8000/register/sample.html" class="link">Política de privacidad</a> ·
+        <a href="http://127.0.0.1:8000/register/sample.html" class="link">Aviso legal</a> ·
+        <a href="http://127.0.0.1:8000/register/sample.html" class="link">Cookies</a>
+      </p>
+      <p class="m-0 mbt1">© Gestión de Pedidos 2021 </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap con los necesarios enlaces-->
+  <script src="./formulario_files/jquery.min.js.descarga"></script>
+  <script src="./formulario_files/bootstrap.bundle.min.js.descarga"></script>
+
+
+
+
+</body></html>

@@ -1,0 +1,64 @@
+{% extends "ProyectowebApp/base.html" %}
+
+{% load static %}
+{% block title %}
+{% if category %}{{category.name}}{% else %}Products{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<div id="content">
+    <div id="sidebar">
+        <h3>Categories</h3>
+        <ul>
+            <li {% if not category %} class="selected"{% endif %}>
+                <a href="{% url 'onlineshop:product_list' %}">All</a>
+            </li>
+           {%for c in categories%} 
+           <li {% if category.slug == c.slug %} class="selected"{% endif %}>
+                <a href="{{ c.get_absolute_url}}">{{c.name}}</a>
+            </li>
+            {% endfor %} 
+    
+        </ul>
+    
+    
+    </div>
+    <div class="container">
+        <h3>{% if category %}{{category.name}}{% else %}Products{% endif %}</h3>
+        <div class="row">
+            
+                    {% for product in products%}
+          
+            <div class="col-md-3">
+                
+                <div class="card" style="width: 100%; margin: 5px 5px;">
+                    
+                    <div class="card-img-top">
+                        <a href="{{ product.get_absolute_url}}">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/imge.png" %}{% endif %}" class="card-img-top">
+                        </a>
+                        <div class="card-body" style="text-align: center;">
+                            <a href="{{ product.get_absolute_url}}">
+                                {{product.name}}
+                            </a>
+                            <br>
+                             Q{{product.price}}
+                        </div>
+                        
+                        
+                    </div>
+                     
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

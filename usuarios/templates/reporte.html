@@ -1,0 +1,256 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container" style="text-align: center;">
+    {% if not user.is_authenticated %}
+
+        <h1>Login Form</h1>
+        <form method="POST" style="text-align: center;">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+                
+            <input type="submit" value="Login">
+        </form>
+    {% else %}
+
+        {% if user.privilegio == "A" %}
+                <div class="contenedorFormulario" style="text-align: center;">
+                    <h3>Reporte de ventas de todas las Tiendas</h3>
+                </div>
+                
+                <table class="cart">
+                    <thead>
+                        <tr>
+                            <th>Numero Orden</th>
+                            <th>Tienda</th>
+                            <th>Nombre Completo</th>
+                            <th>Direccion</th>
+                            <th>Municipio</th>
+                            <th>Departamento</th>
+                            <th>Teléfono</th>
+                            <th>Método de pago</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for address in student_number %}
+                        <tr>
+                            <td>
+                                {{ address.id}}
+                            </td>
+                            <td>
+                                {{ address.tienda }}
+                            </td>
+                            <td>
+                                {{ address.nombre_completo }}
+                            </td>
+                            <td>
+                                {{ address.direccion }}
+                            </td>
+                            <td>
+                                {{ address.municipio }}
+                            </td>
+                            <td>
+                                {{ address.departamento }}
+                            </td>
+                            <td>
+                                {{ address.phone_number }}
+                            </td>
+                            <td>
+                                {{ address.metodo_pago }}
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+
+            {% if user.privilegio == "R" %}
+
+                {% if user.tienda == "M" %}
+
+                    <div class="contenedorFormulario" style="text-align: center;">
+                        <h3>Reporte de ventas de Tienda Miraflores</h3>
+                    </div>
+                    
+                    <table class="cart">
+                        <thead>
+                            <tr>
+                                <th>Numero Orden</th>
+                                <th>Tienda</th>
+                                <th>Nombre Completo</th>
+                                <th>Direccion</th>
+                                <th>Municipio</th>
+                                <th>Departamento</th>
+                                <th>Teléfono</th>
+                                <th>Método de pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for address in student_number1 %}
+                            <tr>
+                                <td>
+                                    {{ address.id}}
+                                </td>
+                                <td>
+                                    {{ address.tienda }}
+                                </td>
+                                <td>
+                                    {{ address.nombre_completo }}
+                                </td>
+                                <td>
+                                    {{ address.direccion }}
+                                </td>
+                                <td>
+                                    {{ address.municipio }}
+                                </td>
+                                <td>
+                                    {{ address.departamento }}
+                                </td>
+                                <td>
+                                    {{ address.phone_number }}
+                                </td>
+                                <td>
+                                    {{ address.metodo_pago }}
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                {% endif %}
+
+                {% if user.tienda == "T" %}
+
+                    <div class="contenedorFormulario" style="text-align: center;">
+                        <h3>Reporte de ventas de Tienda Tikal Futura</h3>
+                    </div>
+                    
+                    <table class="cart">
+                        <thead>
+                            <tr>
+                                <th>Numero Orden</th>
+                                <th>Tienda</th>
+                                <th>Nombre Completo</th>
+                                <th>Direccion</th>
+                                <th>Municipio</th>
+                                <th>Departamento</th>
+                                <th>Teléfono</th>
+                                <th>Método de pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for address in student_number2 %}
+                            <tr>
+                                <td>
+                                    {{ address.id}}
+                                </td>
+                                <td>
+                                    {{ address.tienda }}
+                                </td>
+                                <td>
+                                    {{ address.nombre_completo }}
+                                </td>
+                                <td>
+                                    {{ address.direccion }}
+                                </td>
+                                <td>
+                                    {{ address.municipio }}
+                                </td>
+                                <td>
+                                    {{ address.departamento }}
+                                </td>
+                                <td>
+                                    {{ address.phone_number }}
+                                </td>
+                                <td>
+                                    {{ address.metodo_pago }}
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                {% endif %}
+
+                {% if user.tienda == "E" %}
+
+                    <div class="contenedorFormulario" style="text-align: center;">
+                        <h3>Reporte de ventas de Tienda Eskala</h3>
+                    </div>
+                    
+                    <table class="cart">
+                        <thead>
+                            <tr>
+                                <th>Numero Orden</th>
+                                <th>Tienda</th>
+                                <th>Nombre Completo</th>
+                                <th>Direccion</th>
+                                <th>Municipio</th>
+                                <th>Departamento</th>
+                                <th>Teléfono</th>
+                                <th>Método de pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for address in student_number3 %}
+                            <tr>
+                                <td>
+                                    {{ address.id}}
+                                </td>
+                                <td>
+                                    {{ address.tienda }}
+                                </td>
+                                <td>
+                                    {{ address.nombre_completo }}
+                                </td>
+                                <td>
+                                    {{ address.direccion }}
+                                </td>
+                                <td>
+                                    {{ address.municipio }}
+                                </td>
+                                <td>
+                                    {{ address.departamento }}
+                                </td>
+                                <td>
+                                    {{ address.phone_number }}
+                                </td>
+                                <td>
+                                    {{ address.metodo_pago }}
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                {% endif %}
+
+            
+            {% else %}
+
+            <div class="contenedorFormulario" style="text-align: center;">
+                <h1>No tiene los privilegios para consultar esta información</h1>
+            </div>
+
+            {% endif %}
+             
+            
+            
+
+        {% endif %}
+
+        
+        
+
+    {% endif %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "ProyectowebApp/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div id="content">
+    <div class="product-detail">
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}
+        {% static "img/no_imge.png" %}{% endif %}">
+        <div class="cart" >
+            <h1>{{ product.name }}</h1>
+            <h2><a href="{{product.category.get_absolute_url}}">
+                {{product.category}}
+            </a>
+            </h2>
+            <p class="price">Q{{ product.price }}</p>
+            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                {{ cart_product_form}}
+                {% csrf_token %}
+                <input type="submit" value="Add to cart">
+            </form>
+            <h3>
+                Disponible en Tienda {{ product.tienda }} Cantidad: {{ product.inventory }}
+            </h3>
+            <h3>
+                {{ product.description }}
+            </h3>
+        
+        </div>
+        
+    
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "ProyectowebApp/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div style="float:right;">
+
+
+
+    {% include "cart/carro.html" %}
+
+</div>
+<div class="container">
+    
+    
+    <div class="contenedorFormulario">
+    
+        <form action=""  method="POST" style="text-align: center;">
+            {% csrf_token%}
+            <table style="color: #0D1926; margin: 20px auto;">
+                {{form.as_table}}
+                
+            </table>
+            
+            <input type="submit" value="Enviar pedido" style="width:150px">
+        </form>
+    
+    
+    
+    </div>
+</div>
+
+
+{% endblock %}

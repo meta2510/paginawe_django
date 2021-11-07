@@ -1,0 +1,237 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container" style="text-align: center;">
+    {% if not user.is_authenticated %}
+
+        <h1>Login Form</h1>
+        <form method="POST" style="text-align: center;">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+                
+            <input type="submit" value="Login">
+        </form>
+    {% else %}
+
+        {% if user.privilegio == "A" %}
+                <div class="contenedorFormulario" style="text-align: center;">
+                    <h3>Productos de todas las Tiendas</h3>
+                </div>
+                
+                <table class="cart">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Tienda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in student_number %}
+                        <tr>
+                            <td>
+                                <a href="{{ product.get_absolute_url}}">
+                                    <img src="{% if product.image %}{{ product.image.url }}
+                                    {% else %}{% static "img/no_image.png" %}{% endif %}">
+                                </a>
+                            </td>
+                            <td>
+                                {{ product.name}}
+                            </td>
+                            <td>
+                                {{ product.description}}
+                            </td>
+                            <td>
+                                {{ product.price}}
+                            </td>
+                            <td>
+                                {{ product.inventory}}
+                            </td>
+                            <td>
+                                {{ product.tienda}}
+                            </td>
+                
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+
+            {% if user.privilegio == "V" %}
+
+                {% if user.tienda == "M" %}
+
+                    <div class="contenedorFormulario" style="text-align: center;">
+                        <h3>Productos de la tienda Miraflores</h3>
+                    </div>
+                    
+                    <table class="cart">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Tienda</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in student_number1 %}
+                            <tr>
+                                <td>
+                                    <a href="{{ product.get_absolute_url}}">
+                                        <img src="{% if product.image %}{{ product.image.url }}
+                                        {% else %}{% static "img/no_image.png" %}{% endif %}">
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ product.name}}
+                                </td>
+                                <td>
+                                    {{ product.description}}
+                                </td>
+                                <td>
+                                    {{ product.price}}
+                                </td>
+                                <td>
+                                    {{ product.inventory}}
+                                </td>
+                                <td>
+                                    {{ product.tienda}}
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                {% endif %}
+
+                {% if user.tienda == "T" %}
+
+                    <div class="contenedorFormulario" style="text-align: center;">
+                        <h3>Productos de la tienda Tikal Futura</h3>
+                    </div>
+                    
+                    <table class="cart">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Tienda</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in student_number1 %}
+                            <tr>
+                                <td>
+                                    <a href="{{ product.get_absolute_url}}">
+                                        <img src="{% if product.image %}{{ product.image.url }}
+                                        {% else %}{% static "img/no_image.png" %}{% endif %}">
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ product.name}}
+                                </td>
+                                <td>
+                                    {{ product.description}}
+                                </td>
+                                <td>
+                                    {{ product.price}}
+                                </td>
+                                <td>
+                                    {{ product.inventory}}
+                                </td>
+                                <td>
+                                    {{ product.tienda}}
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                {% endif %}
+
+                {% if user.tienda == "E" %}
+
+                    <div class="contenedorFormulario" style="text-align: center;">
+                        <h3>Productos de la tienda Eskala</h3>
+                    </div>
+                    
+                    <table class="cart">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Tienda</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in student_number1 %}
+                            <tr>
+                                <td>
+                                    <a href="{{ product.get_absolute_url}}">
+                                        <img src="{% if product.image %}{{ product.image.url }}
+                                        {% else %}{% static "img/no_image.png" %}{% endif %}">
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ product.name}}
+                                </td>
+                                <td>
+                                    {{ product.description}}
+                                </td>
+                                <td>
+                                    {{ product.price}}
+                                </td>
+                                <td>
+                                    {{ product.inventory}}
+                                </td>
+                                <td>
+                                    {{ product.tienda}}
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                {% endif %}
+
+            
+            {% else %}
+
+            <div class="contenedorFormulario" style="text-align: center;">
+                <h1>No tiene los privilegios para consultar esta información</h1>
+            </div>
+
+            {% endif %}
+             
+            
+            
+
+        {% endif %}
+
+        
+        
+
+    {% endif %}
+</div>
+
+{% endblock content %}
